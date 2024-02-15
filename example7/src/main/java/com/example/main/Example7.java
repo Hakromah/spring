@@ -50,8 +50,8 @@ public class Example7 {
         if (null != volksVehicle) {
             System.out.println("Programming Vehicle name from Spring Context is: " + volksVehicle.getName());
         } else {
+            assert audiVehicle != null;
             System.out.println("Programming Vehicle name from Spring Context is: " + audiVehicle.getName());
         }
-
     }
 }
