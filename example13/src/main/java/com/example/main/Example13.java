@@ -17,5 +17,21 @@ public class Example13 {
         vehicle.getVehicleServices().moveVehicle();*/
         person.getVehicle().getVehicleServices().playMusic();
         person.getVehicle().getVehicleServices().moveVehicle();
+
+        System.out.println("-".repeat(30));
+        System.out.println(anyMethod());
+    }
+
+    static int anyMethod() {
+        int i = 1;
+        try {
+            i = i + 1;
+            return i;
+        } catch (Exception e) {
+            i = i + 2;
+        } finally {
+            i = i + 3;
+        }
+        return i;
     }
 }
