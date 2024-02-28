@@ -56,6 +56,7 @@ public class VehicleServices {
 //        Instant finish = Instant.now();
 //        long timeElapsed = Duration.between(start, finish).toMillis();
 //        logger.info("Time took to execute the method : " + timeElapsed);
+        //throw new NullPointerException("Damn ! Null pointer exception occurred !!");
         return tyres.rotate();
     }
 
