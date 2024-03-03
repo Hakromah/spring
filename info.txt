@@ -1,2 +1,12 @@
-AOP
+1-AOP
 https://docs.spring.io/spring-framework/reference/core/aop/ataspectj/pointcuts.html#aop-pointcuts-examples
+
+2- Spring Beans Validations:
+https://beanvalidation.org/
+
+3- Spring API Book
+https://www.baeldung.com/rest-api-spring-guide
+
+- Book PDF link:
+https://s3.amazonaws.com/baeldung.com/Build+Your+API+with+Spring.pdf?__s=t7dncglxp1z9bxahn1m7
+
