@@ -47,7 +47,7 @@ public class ContactController {
     @RequestMapping(value = "/saveMsg", method = RequestMethod.POST)
     public String saveMessage(@Valid @ModelAttribute("contact") Contact contact, Errors errors) {
         if (errors.hasErrors()) {
-            log.error("Contact form validation failed due to : " + errors.toString());
+            log.error("Contact form validation failed due to : " + errors);
             return "contact.html";// this display the contact page
         }
         contactService.saveMessageDetails(contact);
