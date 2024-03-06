@@ -23,8 +23,8 @@ public class ProjectSecurityConfig {
                         .requestMatchers("/saveMsg").permitAll()
                         .requestMatchers("/courses").permitAll()
                         .requestMatchers("/about").permitAll()
-                        .requestMatchers("/login").permitAll()
-                        .requestMatchers("/assets/**").permitAll())
+                        .requestMatchers("/assets/**").permitAll()
+                        .requestMatchers("/login").permitAll())
                 .formLogin(httpSecurityFormLoginConfigurer -> httpSecurityFormLoginConfigurer.loginPage("/login")//setting up the custom loginPage
                         .defaultSuccessUrl("/dashboard").failureUrl("/login?error=true").permitAll())
                 .logout(httpSecurityLogoutConfigurer -> httpSecurityLogoutConfigurer.logoutSuccessUrl("/login?logout=true")

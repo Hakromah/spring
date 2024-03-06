@@ -10,3 +10,6 @@ https://www.baeldung.com/rest-api-spring-guide
 - Book PDF link:
 https://s3.amazonaws.com/baeldung.com/Build+Your+API+with+Spring.pdf?__s=t7dncglxp1z9bxahn1m7
 
+- Thymeleaf Spring Security steps
+https://www.thymeleaf.org/doc/articles/springsecurity.html
+
