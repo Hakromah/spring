@@ -4,6 +4,13 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.io.IOException;
+
+/*
+@ControllerAdvice is a specialization of the @Component annotation which allows to handle
+exceptions across the whole application in one global handling component. It can be viewed
+as an interceptor of exceptions thrown by methods annotated with @RequestMapping and similar.
+* */
 @ControllerAdvice
 public class GlobalExceptionController {
 
@@ -11,8 +18,12 @@ public class GlobalExceptionController {
     @ExceptionHandler will register the given method for a given
     exception type, so that ControllerAdvice can invoke this method
     logic if a given exception type is thrown inside the web application.
+    WE CAN ADD ANY TYPE OF EXCEPTION LIKE SHOWN BELLOW
     * */
-    @ExceptionHandler(Exception.class)
+    @ExceptionHandler({Exception.class,
+            NullPointerException.class,
+            ArrayIndexOutOfBoundsException.class,
+            IOException.class})
     public ModelAndView exceptionHandler(Exception exception) {
         ModelAndView errorPage = new ModelAndView();
         errorPage.setViewName("error");
