@@ -13,7 +13,13 @@ https://s3.amazonaws.com/baeldung.com/Build+Your+API+with+Spring.pdf?__s=t7dncgl
 - Thymeleaf Spring Security steps
 https://www.thymeleaf.org/doc/articles/springsecurity.html
 
-- To create a custom banner in your spring App, go to below link 
-create your banner copy and paste in the banner.txt file you created in the resources file
+- To create a custom banner in your spring App, go to the below link 
+create your banner copy and paste it into the banner.txt file you created in the resources file
 https://manytools.org/hacker-tools/ascii-banner/
+
+-CSRF (Cross-Site Request Forgery)
+This attack aims to operate a web application on behalf of a user without their explicit consent
+To prevent this, we should add this to our login.html file and enable CSRF in our security Config class
+<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+
 
