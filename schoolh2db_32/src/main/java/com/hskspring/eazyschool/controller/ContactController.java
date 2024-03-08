@@ -51,8 +51,6 @@ public class ContactController {
             return "contact.html";// this display the contact page
         }
         contactService.saveMessageDetails(contact);
-        contactService.setCounter(contactService.getCounter() + 1);
-        log.info("Number of times the Contact form is submitted : " + contactService.getCounter());
         return "redirect:/contact";// recheck all the validations again in the contact page
     }
 }

@@ -1,5 +1,6 @@
 package com.hskspring.eazyschool.config;
 
+import org.springframework.boot.autoconfigure.security.servlet.PathRequest;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.annotation.Order;
@@ -15,7 +16,8 @@ public class ProjectSecurityConfig {
     //permit all the paths we have in the application
     @Bean
     SecurityFilterChain defaultSecurityFilterChain(HttpSecurity http) throws Exception {
-        http.csrf((csrf) -> csrf.ignoringRequestMatchers("/saveMsg"))
+        http.csrf((csrf) -> csrf.ignoringRequestMatchers("/saveMsg")
+                        .ignoringRequestMatchers(PathRequest.toH2Console()))
                 .authorizeHttpRequests((request) -> request.requestMatchers("/dashboard").authenticated()
                         .requestMatchers("**", "/", "/home").permitAll()
                         .requestMatchers("/holidays/**").permitAll()
@@ -25,12 +27,17 @@ public class ProjectSecurityConfig {
                         .requestMatchers("/about").permitAll()
                         .requestMatchers("/assets/**").permitAll()
                         .requestMatchers("/login").permitAll()
-                        .requestMatchers("/logout").permitAll())
+                        .requestMatchers("/logout").permitAll()
+                        .requestMatchers(PathRequest.toH2Console()).permitAll())
                 .formLogin(httpSecurityFormLoginConfigurer -> httpSecurityFormLoginConfigurer.loginPage("/login")//setting up the custom loginPage
                         .defaultSuccessUrl("/dashboard").failureUrl("/login?error=true").permitAll())
                 .logout(httpSecurityLogoutConfigurer -> httpSecurityLogoutConfigurer.logoutSuccessUrl("/login?logout=true")
                         .invalidateHttpSession(true).permitAll())
                 .httpBasic(Customizer.withDefaults());
+        /* To disable the behaviour of spring security framework
+            inorder to display H2 Database in the browser*/
+        http.headers().frameOptions().disable();
+
         return http.build();
     }
 
