@@ -13,7 +13,7 @@ equals(), hashCode(), toString() methods & Constructor at compile time.
 This makes our code short and clean.
 * */
 @Data
-public class Contact extends BaseEntity{
+public class Contact extends BaseEntity {
 
     private int contactId;
 
@@ -26,7 +26,7 @@ public class Contact extends BaseEntity{
     private String name;
 
     @NotBlank(message = "Mobile number must not be blank")
-    @Pattern(regexp = "(^$|[0-9]{10,14})", message = "Mobile number must be 10 digits")
+    @Pattern(regexp = "(^$|[0-9]{10})", message = "Mobile number must be 10 digits")
     private String mobileNum;
 
     @NotBlank(message = "Email must not be blank")
