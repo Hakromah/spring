@@ -1,5 +1,8 @@
 package com.hskspring.eazyschool.repository;
 
+//import com.hskspring.eazyschool.model.Contact;
+
+
 import com.hskspring.eazyschool.model.Contact;
 import com.hskspring.eazyschool.rommappers.ContactRowMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,7 +48,7 @@ public class ContactRepository {
 
     //Update messages
     public int updateMsgStatus(int contactId, String status, String updatedBy) {
-        String sql = "UPDATE CONTACT_MSG SET STATUS = ?, UPDATED_BY = ?, UPDATED_AT = ?, WHERE CONTACT_ID = ?";
+        String sql = "UPDATE CONTACT_MSG SET STATUS = ?, UPDATED_BY = ?, UPDATED_AT = ? WHERE CONTACT_ID = ?";
 
         return jdbcTemplate.update(sql, new PreparedStatementSetter() {
             public void setValues(PreparedStatement preparedStatement) throws SQLException {

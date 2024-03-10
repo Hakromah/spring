@@ -3,7 +3,6 @@ package com.hskspring.eazyschool.model;
 import lombok.Data;
 
 import java.time.LocalDateTime;
-
 @Data
 public class BaseEntity {
 

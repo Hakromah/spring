@@ -6,12 +6,15 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 /*
 @Data annotation is provided by Lombok library which generates getter, setter,
 equals(), hashCode(), toString() methods & Constructor at compile time.
 This makes our code short and clean.
 * */
+
+@EqualsAndHashCode(callSuper = true)
 @Data
 public class Contact extends BaseEntity {
 
@@ -38,7 +41,7 @@ public class Contact extends BaseEntity {
     private String subject;
 
     @NotBlank(message = "Message must not be blank")
-    @Size(min = 10, message = "Message must be at least 10 characters long")
+    @Size(min = 10, message = "Message must be at lea 10 characters long")
     private String message;
 
     private String status;

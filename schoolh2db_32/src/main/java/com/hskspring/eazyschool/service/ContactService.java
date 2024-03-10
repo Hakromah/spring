@@ -14,7 +14,7 @@ import java.util.List;
 @Service
 public class ContactService {
 
-    @Autowired
+ @Autowired
     private ContactRepository contactRepository;
 
     public ContactService() {
