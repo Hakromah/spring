@@ -19,7 +19,8 @@ public class ProjectSecurityConfig {
         http.csrf((csrf) -> csrf.ignoringRequestMatchers("/saveMsg")
                         .ignoringRequestMatchers(PathRequest.toH2Console()))
                 .authorizeHttpRequests((request) -> request.requestMatchers("/dashboard").authenticated()
-                        .requestMatchers("/displayMessages").hasRole("ADMIN")
+                        .requestMatchers("/displayMessages").hasRole("ADMIN")//for viewing messages
+                        .requestMatchers("/closeMsg/**").hasRole("ADMIN")//for update
                         .requestMatchers("**", "/", "/home").permitAll()
                         .requestMatchers("/holidays/**").permitAll()
                         .requestMatchers("/contact").permitAll()//.authenticated() u will be required to log in to get access
