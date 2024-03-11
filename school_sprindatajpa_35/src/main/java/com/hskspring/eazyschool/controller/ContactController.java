@@ -7,10 +7,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.hskspring.eazyschool.model.Contact;
@@ -20,6 +17,7 @@ import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j //private static Logger log = LoggerFactory.getLogger(ContactController.class);
+@CrossOrigin
 @Controller
 public class ContactController {
 
@@ -53,8 +51,9 @@ public class ContactController {
         modelAndView.addObject("contactMsgs", contactMsgs);
         return modelAndView;
     }
+
     //Close message
-    @RequestMapping(value = "/closeMsg",method = RequestMethod.GET)
+    @RequestMapping(value = "/closeMsg", method = RequestMethod.GET)
     public String closeMsg(@RequestParam int id, Authentication authentication) {
         contactService.updateMsgStatus(id, authentication.getName());
         return "redirect:/displayMessages";
