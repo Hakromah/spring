@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,6 +12,7 @@ import com.hskspring.eazyschool.constants.EasySchoolContacts;
 import com.hskspring.eazyschool.model.Contact;
 import com.hskspring.eazyschool.repository.ContactRepository;
 
+@Slf4j
 @Service
 public class ContactService {
 
@@ -39,7 +41,7 @@ public class ContactService {
         return contactMsgs;
     }
 
-    // update message
+    // update message Status
     public boolean updateMsgStatus(int contactId, String updatedBy) {
         boolean isUpdated = false;
         Optional<Contact> contact = contactRepository.findById(contactId);
