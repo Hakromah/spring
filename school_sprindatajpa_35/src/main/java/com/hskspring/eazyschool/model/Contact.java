@@ -6,6 +6,8 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
+
 import org.hibernate.annotations.GenericGenerator;
 
 /*
@@ -14,6 +16,7 @@ equals(), hashCode(), toString() methods & Constructor at compile time.
 This makes our code short and clean.
 * */
 @Data
+@EqualsAndHashCode(callSuper = false)
 @Entity
 @Table(name = "contact_msg")
 public class Contact extends BaseEntity {

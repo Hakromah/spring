@@ -1,17 +1,16 @@
 package com.hskspring.eazyschool.service;
 
-import com.hskspring.eazyschool.constants.EasySchoolContacts;
-import com.hskspring.eazyschool.model.Contact;
-import com.hskspring.eazyschool.repository.ContactRepository;
-import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
-@Slf4j// it will provide log object
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.hskspring.eazyschool.constants.EasySchoolContacts;
+import com.hskspring.eazyschool.model.Contact;
+import com.hskspring.eazyschool.repository.ContactRepository;
+
 @Service
 public class ContactService {
 

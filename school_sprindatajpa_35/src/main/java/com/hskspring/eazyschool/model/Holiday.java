@@ -2,6 +2,7 @@ package com.hskspring.eazyschool.model;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 /*
 @Data annotation is provided by Lombok library which generates getter, setter,
@@ -9,6 +10,7 @@ equals(), hashCode(), toString() methods & Constructor at compile time.
 This makes our code short and clean.
 * */
 @Data
+@EqualsAndHashCode(callSuper = false)
 @Entity
 @Table(name = "holidays")
 public class Holiday extends BaseEntity {
