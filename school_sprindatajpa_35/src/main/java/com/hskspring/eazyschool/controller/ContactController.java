@@ -17,7 +17,6 @@ import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j //private static Logger log = LoggerFactory.getLogger(ContactController.class);
-@CrossOrigin
 @Controller
 public class ContactController {
 

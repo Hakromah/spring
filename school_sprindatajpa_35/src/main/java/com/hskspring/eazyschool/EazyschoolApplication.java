@@ -7,6 +7,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 
 @SpringBootApplication
+@ComponentScan("com.hskspring.eazyschool.config")
 @EnableJpaRepositories("com.hskspring.eazyschool.repository")
 @ComponentScan("com.hskspring.eazyschool.model")
 public class EazyschoolApplication {

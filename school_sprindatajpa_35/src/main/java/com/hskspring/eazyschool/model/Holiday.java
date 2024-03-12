@@ -10,8 +10,8 @@ equals(), hashCode(), toString() methods & Constructor at compile time.
 This makes our code short and clean.
 * */
 @Data
-@EqualsAndHashCode(callSuper = false)
 @Entity
+@EqualsAndHashCode(callSuper = false)
 @Table(name = "holidays")
 public class Holiday extends BaseEntity {
 

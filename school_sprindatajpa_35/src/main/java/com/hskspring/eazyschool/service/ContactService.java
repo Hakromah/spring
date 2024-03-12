@@ -37,8 +37,7 @@ public class ContactService {
     }
 
     public List<Contact> findMsgsWithOpenStatus() {
-        List<Contact> contactMsgs = contactRepository.findByStatus(EasySchoolContacts.OPEN);
-        return contactMsgs;
+        return contactRepository.findByStatus(EasySchoolContacts.OPEN);
     }
 
     // update message Status
