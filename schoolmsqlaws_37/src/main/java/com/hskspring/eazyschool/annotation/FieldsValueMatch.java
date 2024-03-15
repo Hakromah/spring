@@ -30,6 +30,4 @@ public @interface FieldsValueMatch {
     @interface List {
         FieldsValueMatch[] value();
     }
-
-
 }
