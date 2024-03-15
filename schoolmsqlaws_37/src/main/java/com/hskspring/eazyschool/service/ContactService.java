@@ -1,6 +1,6 @@
 package com.hskspring.eazyschool.service;
 
-import com.hskspring.eazyschool.constants.EasySchoolContacts;
+import com.hskspring.eazyschool.constants.EasySchoolConstants;
 import com.hskspring.eazyschool.model.Contact;
 import com.hskspring.eazyschool.repository.ContactRepository;
 import lombok.extern.slf4j.Slf4j;
@@ -25,7 +25,7 @@ public class ContactService {
 
     public boolean saveMessageDetails(Contact contact) {
         boolean isSaved = false;
-        contact.setStatus(EasySchoolContacts.OPEN);
+        contact.setStatus(EasySchoolConstants.OPEN);
         Contact savedContact = contactRepository.save(contact);
         if (null != savedContact && savedContact.getContactId() > 0) {
             isSaved = true;
@@ -34,7 +34,7 @@ public class ContactService {
     }
 
     public List<Contact> findMsgsWithOpenStatus() {
-        List<Contact> contactMsgs = contactRepository.findByStatus(EasySchoolContacts.OPEN);
+        List<Contact> contactMsgs = contactRepository.findByStatus(EasySchoolConstants.OPEN);
         return contactMsgs;
     }
 
@@ -42,7 +42,7 @@ public class ContactService {
         boolean isUpdated = false;
         Optional<Contact> contact = contactRepository.findById(contactId);
         contact.ifPresent(contact1 -> {
-            contact1.setStatus(EasySchoolContacts.CLOSE);
+            contact1.setStatus(EasySchoolConstants.CLOSE);
         });
         Contact updatedContact = contactRepository.save(contact.get());
         if (null != updatedContact && updatedContact.getUpdatedBy() != null) {

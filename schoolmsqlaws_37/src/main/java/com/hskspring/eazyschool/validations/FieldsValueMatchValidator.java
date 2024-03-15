@@ -6,8 +6,7 @@ import jakarta.validation.ConstraintValidatorContext;
 import org.springframework.beans.BeanWrapperImpl;
 
 
-
-public class FieldsValueMatchValidator implements ConstraintValidator<FieldsValueMatch,Override> {
+public class FieldsValueMatchValidator implements ConstraintValidator<FieldsValueMatch, Override> {
     private String field;
     private String fieldMatch;
 
