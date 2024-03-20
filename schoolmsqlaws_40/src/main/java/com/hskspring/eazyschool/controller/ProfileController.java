@@ -17,7 +17,8 @@ public class ProfileController {
         // now let load person details from session that we store in dashboard from DB
         Person person = (Person) session.getAttribute("loggedInPerson");
         Profile profile = new Profile();
-        // let's populate person profile using person Object that we loaded from the session
+        // let's populate person profile using person Object that we loaded from the
+        // session
         profile.setName(person.getName());
         profile.setMobileNumber(person.getMobileNumber());
         profile.setEmail(person.getEmail());

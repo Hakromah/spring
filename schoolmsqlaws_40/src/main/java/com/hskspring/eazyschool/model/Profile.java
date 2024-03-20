@@ -40,3 +40,4 @@ public class Profile {
     @Pattern(regexp = "(^$|[0-9]{5})", message = "Zip Code must be 5 digits")
     private String zipCode;
 }
+
