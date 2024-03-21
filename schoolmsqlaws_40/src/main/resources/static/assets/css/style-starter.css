@@ -21502,3 +21502,7 @@ label {
     margin: 50px;
 }
 /*-- // overview ends--*/
+.control-label:after{
+    content: "*";
+    color: red;
+}
