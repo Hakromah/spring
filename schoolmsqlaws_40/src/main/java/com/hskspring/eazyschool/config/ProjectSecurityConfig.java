@@ -18,6 +18,8 @@ public class ProjectSecurityConfig {
                 .authorizeHttpRequests((request) -> request.requestMatchers("/dashboard").authenticated()
                         .requestMatchers("/displayMessages").hasRole("ADMIN")//for viewing messages
                         .requestMatchers("/closeMsg/**").hasRole("ADMIN")//for update
+                        .requestMatchers("/displayProfile").authenticated()
+                        .requestMatchers("/updateProfile").authenticated()
                         .requestMatchers("**", "/", "/home").permitAll()
                         .requestMatchers("/holidays/**").permitAll()
                         .requestMatchers("/contact").permitAll()//.authenticated() u will be required to log in to get access
