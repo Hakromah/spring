@@ -1,24 +1,23 @@
 package com.hskspring.eazyschool.rest;
 
+import com.hskspring.eazyschool.constants.EasySchoolConstants;
 import com.hskspring.eazyschool.model.Contact;
 import com.hskspring.eazyschool.model.Response;
 import com.hskspring.eazyschool.repository.ContactRepository;
 import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.RequestEntity;
-import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
+import org.springframework.http.*;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Slf4j
 @RestController // = @Controller + @ResponseBody
-@RequestMapping("/api/contact")
+@RequestMapping(value = "/api/contact", produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
+@CrossOrigin(origins = "*")//@CrossOrigin(origin="http://localhost:3000"
 public class ContactRestController {
 
     @Autowired
@@ -71,6 +70,28 @@ public class ContactRestController {
         Response response = new Response();
         response.setStatusCode("200");
         response.setStatusMsg("Message successfully deleted");
+        return ResponseEntity
+                .status(HttpStatus.OK)
+                .body(response);
+    }
+
+    // Close message status
+    @PatchMapping("/closeMsg")
+    public ResponseEntity<Response> closeMsg(@RequestBody Contact contactReq) {
+        Response response = new Response();
+        Optional<Contact> contact = contactRepository.findById(contactReq.getContactId());
+        if (contact.isPresent()) {
+            contact.get().setStatus(EasySchoolConstants.CLOSE);
+            contactRepository.save(contact.get());
+        } else {
+            response.setStatusCode("400");
+            response.setStatusMsg("Invalid Contact ID received");
+            return ResponseEntity
+                    .status(HttpStatus.BAD_REQUEST)
+                    .body(response);
+        }
+        response.setStatusCode("200");
+        response.setStatusMsg("Message successfully closed");
         return ResponseEntity
                 .status(HttpStatus.OK)
                 .body(response);
