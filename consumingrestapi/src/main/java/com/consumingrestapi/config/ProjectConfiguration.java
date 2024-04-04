@@ -24,7 +24,7 @@ public class ProjectConfiguration {
         return WebClient.builder()
                 .filter(ExchangeFilterFunctions
                         .basicAuthentication("admin@email.com","admin"))
-                .build(); // THİS WİLL BUİLD AND RETURN THE OBJ OF WEBCLIENT
+                .build(); // THIS WILL BUILD AND RETURN THE OBJ OF WEBCLIENT
     }
 
     //restTemplate has been deprecated !!!
