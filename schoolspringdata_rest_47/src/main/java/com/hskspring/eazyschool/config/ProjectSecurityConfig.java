@@ -15,21 +15,24 @@ public class ProjectSecurityConfig {
     SecurityFilterChain defaultSecurityFilterChain(HttpSecurity http) throws Exception {
         http.csrf((csrf) -> csrf.ignoringRequestMatchers("/saveMsg")
                         .ignoringRequestMatchers("/public/**")
-                        .ignoringRequestMatchers("/api/**"))
+                        .ignoringRequestMatchers("/api/**")
+                        .ignoringRequestMatchers("/data-api/**"))
                 .authorizeHttpRequests((request) -> request
                         .requestMatchers("/dashboard").authenticated()
                         .requestMatchers("/displayMessages/**").hasRole("ADMIN")//for viewing messages
                         .requestMatchers("/admin/**").hasRole("ADMIN")//admin access all the paths that have prefix /admin
                         .requestMatchers("/api/**").authenticated()
+                        .requestMatchers("/data-api/**").authenticated()//secure all apis in HAL Explorer
                         .requestMatchers("/closeMsg/**").hasRole("ADMIN")//for update
                         .requestMatchers("/displayProfile").authenticated()
                         .requestMatchers("/updateProfile").authenticated()
                         .requestMatchers("/student/**").hasRole("STUDENT")
                         .requestMatchers("**", "/", "/home").permitAll()
                         .requestMatchers("/holidays/**").permitAll()
-                        .requestMatchers("/profile/**").permitAll()
+                        /*.requestMatchers("/profile/**").permitAll()
                         .requestMatchers("/courseses/**").permitAll()
                         .requestMatchers("/contacts/**").permitAll()
+                        .requestMatchers("/data-api/**").permitAll()*/
                         .requestMatchers("/contact").permitAll()//.authenticated() u will be required to log in to get access
                         .requestMatchers("/saveMsg").permitAll()
                         .requestMatchers("/courses").permitAll()
