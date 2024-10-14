@@ -5,6 +5,7 @@
     <title>Footer</title>
 </head>
 <body>
+
 <footer class="w3l-footer-29-main">
     <div class="footer-29 pt-5 pb-4">
         <div class="container pt-md-4">
@@ -48,7 +49,7 @@
                 </div>
             </div>
             <!-- copyright -->
-            <p class="copy-footer-29 text-center pt-lg-2 mt-5 pb-2">© 2023 Eazy School. All rights reserved. Design
+            <p class="copy-footer-29 text-center pt-lg-2 mt-5 pb-2">©<span th:text=" ${#dates.format(#dates.createNow(),'yyyy')} "></span> Eazy School. All rights reserved. Design
                 by <a href="https://w3layouts.com/" target="_blank">W3Layouts</a></p>
             <!-- //copyright -->
         </div>

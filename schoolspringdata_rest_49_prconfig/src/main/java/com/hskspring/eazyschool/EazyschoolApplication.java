@@ -15,5 +15,10 @@ public class EazyschoolApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(EazyschoolApplication.class, args);
+
+       // mahawa2@email.com /// mahawa2
+        //admin@email.com /// admin
+
+
     }
 }

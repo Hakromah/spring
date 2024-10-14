@@ -10,6 +10,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
 import java.util.Optional;
@@ -27,7 +28,7 @@ public class ContactService {
       @return boolean
      */
 
-    public boolean saveMessageDetails(Contact contact) {
+    public boolean saveMessageDetails(@RequestBody Contact contact) {
         boolean isSaved = false;
         contact.setStatus(EasySchoolConstants.OPEN);
         Contact savedContact = contactRepository.save(contact);
